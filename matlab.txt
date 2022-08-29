@@ -1,0 +1,59 @@
+clc
+clear
+close all
+disp('Este ejercicio parte de la ley de enfriamiento de Newtom donde')
+syms T Tm t K e C dT dt
+disp('donde K= constante')
+disp('C= constante')
+disp('T= temperatura')
+disp('e= constante')
+disp('Tm= temperatura del medio')
+disp('t= tiempo')
+disp('Función de temperatura o ley de enfriamiento')
+T==Tm + e^(K*t)*C
+disp('La función de temperatura sale de despejar T en la ecuación diferencial')
+(dT)/(dt) == K*(T-Tm)
+%dT= derivada respecto a la temperatura')
+%dt= derivada respecto al tiempo')
+%Con la información brindada acerca de los aportes de Isaac Newton nuestro
+% ejercicio de aplicación lo realizamos con respecto a la temperatura de la
+% mezcla asfáltica que es aproximadamente de $160°C$.
+%Suponemos que somos los ingenieros de una obra y tenemos algunos datos como
+% temperatura de la mezcla asfáltica, temperatura del medio ambiente y la medición
+% de la temperatura de la mezcla en un tiempo determinado después de la aplicación
+% y queremos saber cual es la temperatura de la mezcla en un segundo tiempo determinado 
+% después de su aplicación. Los datos son hipotéticos pero veremos si tiene sentido el 
+% resultado de acuerdo a lo que establece la ley de Newton
+disp('Encontramos C')
+T=160
+Tm=25
+e=2.71828183
+t=0
+C=C
+K=K
+solve(T==Tm + C*e^(K*t),C)
+disp('Encontramos K')
+T=100
+Tm=25
+e=2.71828183
+t=30
+C=135
+K=K
+solve(T==Tm + C*e^(K*t),K)
+log(5/9)/(30*log(6121026518337995/2251799813685248))
+%Como queremos saber la temperatura de la mezcla pasados 60 minutos reemplazamos
+% en la función con las constantes encontradas
+disp('Encontramos T')
+syms T Tm e t C K
+T=100
+Tm=25
+e=2.71828183
+t=60
+C=135
+K=-1.96*10^(-2)
+x=K*t
+T= Tm+(C*e^x)
+%Analizado los resultados podemos ver que la temperatura a los 60 minutos
+% de su aplicación tiene sentido de acuerdo a lo que establece la ley de Newton,
+% ya que por definición la temperatura de cualquier objeto tiende a ser 
+% la misma del medio en el que se encuentra a medida que pasa el tiempo.
